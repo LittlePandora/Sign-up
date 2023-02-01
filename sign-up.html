@@ -10,9 +10,15 @@
 
     <script>
         function validateForm() {
+            let yourname = document.forms["sign_in"]["yourname"].value;
             let email = document.forms["sign_in"]["email"].value;
             let password = document.forms["sign_in"]["password"].value;
+            let confirmpassword = document.forms["sign_in"]["confirmpassword"].value;
 
+            if (yourname == "") {
+                alert("Name must be filled out");
+                return false;
+            }
             if (email == "") {
                 alert("Email must be filled out");
                 return false;
@@ -25,6 +31,15 @@
                 alert("Password lenght must be more 8 character ");
                 return false;
             }
+            if (confirmpassword == "") {
+                alert("Confirm password must be filled out");
+                return false;
+            }
+            if (confirmpassword != password) {
+                alert("Password and Confirm password must be same");
+                return false;
+            }
+
         }
     </script>
 
@@ -55,7 +70,7 @@
                     <input type="yourname " name="yourname" id="yourname" placeholder="Your name " class="yourname">
                     <input type="email " name="email" id="email" placeholder="Email " class="email ">
                     <input type="password" name="password" id="password" placeholder="Password " class="password ">
-                    <input type="confirmpassword" name="confirmpassword" id="confirmpassword" placeholder="Confirm password " class="confirmpassword ">
+                    <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password " class="confirmpassword ">
                     <input type="submit" value="Sign Up" class="button ">
                 </form>
             </div>
